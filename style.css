@@ -1,0 +1,36 @@
+html, body{
+    font-family: sans-serif;
+    margin:0;
+    padding:0;
+}
+.canvases>div{
+    display:inline-block;
+    margin:5px;
+    padding:3px;
+}
+body >div{
+    display:table;
+    min-height:100vh;
+}
+body>div>aside{
+    display:table-cell;
+    width:200px;
+    vertical-align: top;
+    background:#eee;
+}
+body>div>aside>ul{
+    margin:0;
+    padding:0;
+}
+
+body>div>aside>ul>li{
+    text-align:center;
+    padding:5px;
+    margin:3px;
+    border:2px #5f5 solid;
+    background:#cfc;
+}
+.main{
+    display:table-cell;
+    vertical-align: top;
+}
