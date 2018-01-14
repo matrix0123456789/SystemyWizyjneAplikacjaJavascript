@@ -6,9 +6,10 @@ buttons.push({name: 'Load images', fun: (inputBitmap) => {
         for (var i = 0; i < fileNames.length; i++) {
             var img = new Image();
             img.context = canvases[i].getContext("2d");
-            img.onload = function() {
+            img.onload = function () {
                 this.context.drawImage(this, 0, 0);
             };
+            img.crossOrigin = 'Anonymous';
             img.src = 'img/' + fileNames[i];
         }
     }});
