@@ -1,5 +1,5 @@
 buttons.push({name: 'Load images', fun: (inputBitmap) => {
-        var fileNames = ['lena256.png', 'airplane256.png', 'cicada256.png', 'mandrill256.png', 'monkey256.png', 'parrots256.png', 'tire256.png'];
+        var fileNames = ['lena256.png', 'airplane256.png', 'cicada256.png', 'mandrill256.png', 'monkey256.png', 'parrots256.png', 'tire256.png', 'janusz256.png'];
         changeCanvasesCount(fileNames.length);
         var canvases = document.querySelectorAll('.canvases canvas');//lista wszystkich canvasów
 
