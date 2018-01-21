@@ -13,7 +13,7 @@ function generateFigures(count, context) {
         var figure = {x: r + 2 + Math.floor(Math.random() * (256 - 2 * r - 4)),
             y: r + 2 + Math.floor(Math.random() * (256 - 2 * r - 4)),
             r: r,
-            type: 2 + Math.floor(Math.random() * 4), //2 to koło, 3 i więcej to wielokąt
+            type: 2 + Math.floor(Math.random() * 5), //2 to koło, 3 i więcej to wielokąt
             points: []};
 
         //sprawdzamy, czy figury się nie nakładają
