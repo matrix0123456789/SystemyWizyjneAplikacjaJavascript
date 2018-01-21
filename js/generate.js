@@ -8,12 +8,25 @@ context.fillStyle = 'white';
 context.fillRect(0,0,255,255);
       var figures=[];
       while(figures.length<count){
-
-            var figure={x:Math.floor(Math.random()*256),
-                        y:Math.floor(Math.random()*256),
-                        r:12+Math.floor(Math.random()*10),
+var r=12+Math.floor(Math.random()*10);
+            var figure={x:r+2+Math.floor(Math.random()*(256-2*r-4)),
+                        y:r+2+Math.floor(Math.random()*(256-2*r-4),
+                        r:r,
                         type:Math.floor(Math.random()*6), 
                         points:[]};
+var canDraw=true;
+for(var otherFigure of figures){
+var distance=Math.sqrt(Math.pow(otherFigure.x-figure.x,2)+Math.pow(otherFigure.y-figure.y,2));
+var minimumDistance=otherFigure.r+figure.r+2;
+if(distance<minimumDistance){
+canDraw=false;
+break;
+}
+}
+            if(!canDraw)
+            {
+                  continue;
+}
             if(figure.type<3){
                   context.beginPath();
       context.arc(figure.x, figure.y, figure.r, 0, 2 * Math.PI, false);
