@@ -27,18 +27,18 @@ context.fillRect(0,0,255,255);
                         alfa=-90;
                   }
                   for(var j=0;j<figure.type;j++){
-                  figure.points.push({x:figure.x+Math.cos(alfa*Math.PI/180)*figure.r,y:figure.x+Math.cos(alfa*Math.PI/180)*figure.r});
+                  figure.points.push({x:figure.x+Math.cos(alfa*Math.PI/180)*figure.r,y:figure.y+Math.sin(alfa*Math.PI/180)*figure.r});
                         alfa+=alfaChange;
                   }
            
-context.fillStyle = 'red';
+context.fillStyle = 'black';
 context.beginPath();
 context.moveTo(figure.points[0].x, figure.points[0].y);
 for(var k=1;k<figure.points.length;k++){
 context.lineTo(figure.points[k].x, figure.points[k].y);
 }
-context.closePath();
 context.fill();
+context.closePath();
                    }
             figures.push(figure);
       }
