@@ -2,9 +2,8 @@ buttons.push({name: '20 figures', fun: (inputBitmap,context) => {
       generateFigures(20,context);
     }});
 function generateFigures(count, context){
-var figures=[];
-      var i=0;
-      while(i<count){
+      var figures=[];
+      while(figures.length<count){
 
             var figure={x:Math.floor(Math.random()*256),
                         y:Math.floor(Math.random()*256),
