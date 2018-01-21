@@ -14,7 +14,7 @@ function generateButtons() {
             var canvas = document.querySelector('.canvases canvas');//wybieramy element typu canvas
             var context = canvas.getContext("2d");
             var imageData = context.getImageData(0, 0, 256, 256);//pobieramy dane z pierwszego
-            var newBitmaps = this.buttonInfo.fun(imageData);//wykonujemy funkcję odpowiadającą przyciskowi
+            var newBitmaps = this.buttonInfo.fun(imageData, context);//wykonujemy funkcję odpowiadającą przyciskowi
             if (newBitmaps) {
                 changeCanvasesCount(newBitmaps.length + 1);
                 var canvases = document.querySelectorAll('.canvases canvas');//lista wszystkich canvasów
