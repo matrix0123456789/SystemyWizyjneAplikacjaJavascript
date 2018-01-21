@@ -3,7 +3,7 @@ buttons.push({name: '20 figures', fun: (inputBitmap,context) => {
     }});
 function generateFigures(count, context){
 
-context.fillStyle = 'black';
+context.fillStyle = 'white';
 
 context.fillRect(0,0,255,255);
       var figures=[];
@@ -27,14 +27,16 @@ context.fillRect(0,0,255,255);
                         alfa=-90;
                   }
                   for(var j=0;j<figure.type;j++){
-                  figure.points.push({x:figure.x+Math.cos(alfa*Math.PI/180),y:figure.x+Math.cos(alfa*Math.PI/180)});
+                  figure.points.push({x:figure.x+Math.cos(alfa*Math.PI/180)*figure.r,y:figure.x+Math.cos(alfa*Math.PI/180)*figure.r});
                         alfa+=alfaChange;
                   }
            
-context.fillStyle = 'black';
+context.fillStyle = 'red';
 context.beginPath();
-for(var point of figure.points){
-context.moveTo(point.x, point.y);}
+context.moveTo(figure.points[0].x, figure.points[0].y);
+for(var k=1;k<figure.points.length;k++){
+context.lineTo(figure.points[k].x, figure.points[k].y);
+}
 context.closePath();
 context.fill();
                    }
