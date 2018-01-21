@@ -10,7 +10,7 @@ context.fillRect(0,0,255,255);
       while(figures.length<count){
 var r=12+Math.floor(Math.random()*10);
             var figure={x:r+2+Math.floor(Math.random()*(256-2*r-4)),
-                        y:r+2+Math.floor(Math.random()*(256-2*r-4),
+                        y:r+2+Math.floor(Math.random()*(256-2*r-4)),
                         r:r,
                         type:Math.floor(Math.random()*6), 
                         points:[]};
