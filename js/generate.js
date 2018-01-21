@@ -1,13 +1,11 @@
-buttons.push({name: '20 figures', fun: (inputBitmap) => {
-      
+buttons.push({name: '20 figures', fun: (inputBitmap,context) => {
+      generateFigures(20,context);
     }});
-function generateFigures(count, canvas){
+function generateFigures(count, context){
 var figures=[];
       var i=0;
       while(i<count){
-var newX=;
-var newY=;
-var newR=;
+
 var figure={x:Math.floor(Math.random()*256),y:Math.floor(Math.random()*256),r:12+Math.floor(Math.random()*10),type:Math.floor(Math.random()*6), points=[]};
             if(figure.type<3){
             }else{
