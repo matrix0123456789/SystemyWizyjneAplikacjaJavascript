@@ -37,6 +37,13 @@ ImageData.prototype.setPixel = function (x, y, pixel) {
     this.data[index] = pixel.r;
     this.data[index + 1] = pixel.g;
     this.data[index + 2] = pixel.b;
+    this.data[index + 3] = 255;
+}
+ImageData.prototype.setTransparentPixel = function (x, y, pixel) {
+    var index = y * 1024 + x * 4;
+    this.data[index] = pixel.r;
+    this.data[index + 1] = pixel.g;
+    this.data[index + 2] = pixel.b;
     this.data[index + 3] = pixel.a;
 }
 
