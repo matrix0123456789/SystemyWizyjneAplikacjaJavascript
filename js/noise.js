@@ -48,19 +48,3 @@ function bitmapProcessing_AddRandomNoise(inputBitmap, count, color) {
     }
     return myNewBitmap;
 }
-function calcPixelByOffset(x, y, mx, my, size) {
-    var offsetForPixel = (size - 1) / 2;
-    var oldX = x - offsetForPixel + mx;
-    var oldY = y - offsetForPixel + my;
-
-    //jeśli wyjdziemy poza granice, udajemy że jest tam lustrzane odbicie bitmapy
-    if (oldX > 256)
-        oldX = 2 * 256 - oldX;
-    if (oldY > 256)
-        oldY = 2 * 256 - oldY;
-    if (oldX < 0)
-        oldX = -oldX;
-    if (oldY < 0)
-        oldY = -oldY;
-    return{x: oldX, y: oldY};
-}

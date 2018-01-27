@@ -95,24 +95,17 @@ function bitmapProcessing_FilterBySorting(inputBitmap, size, number) {
     {
         for (var y = 0; y < myHeight; y++)
         {
-            var r = [];
-            var g = [];
-            var b = [];
+            var pixels = [];
             for (var mx = 0; mx < size; mx++) {
                 for (var my = 0; my < size; my++) {
                     var old = calcPixelByOffset(x, y, mx, my, size);
                     var oldPixel = inputBitmap.getPixel(old.x, old.y);
 
-                    r.push(oldPixel.r);
-                    g.push(oldPixel.g);
-                    b.push(oldPixel.b);
+                    pixels.push(oldPixel);
                 }
             }
-            r = r.sort((a, b) => a - b);
-            g = g.sort((a, b) => a - b);
-            b = b.sort((a, b) => a - b);
-            var myPixel = {r: r[number], g: g[number], b: b[number]};
-            myNewBitmap.setPixel(x, y, myPixel);
+            pixels = pixels.sort((a, b) => (a.r + a.g + a.b) - (b.r + b.g + b.b));//sortujemy całe piksele według jasności
+            myNewBitmap.setPixel(x, y, pixels[number]);
         }
     }
     return myNewBitmap;
@@ -157,13 +150,13 @@ function calcPixelByOffset(x, y, mx, my, size) {
     var oldY = y - offsetForPixel + my;
 
     //jeśli wyjdziemy poza granice, udajemy że jest tam lustrzane odbicie bitmapy
-    if (oldX > 256)
-        oldX = 2 * 256 - oldX;
-    if (oldY > 256)
-        oldY = 2 * 256 - oldY;
-    if (oldX < 0)
+    if (oldX > 255)
+        oldX = 510 - oldX;
+    else if (oldX < 0)
         oldX = -oldX;
-    if (oldY < 0)
+    if (oldY > 255)
+        oldY = 510 - oldY;
+    else if (oldY < 0)
         oldY = -oldY;
     return{x: oldX, y: oldY};
 }
